@@ -10,8 +10,6 @@
     <meta name="author" content="Nox Commerce">
     <meta name="robots" content="index, follow">
 
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Classic Favicon -->
@@ -110,44 +108,7 @@
             :root { --bg: #0f172a; --text: #f1f5f9; }
         }
     </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "NOX Commerce",
-      "operatingSystem": "Web",
-      "applicationCategory": "BusinessApplication",
-      "provider": {
-        "@type": "Organization",
-        "name": "Nox Commerce",
-        "url": "https://noxcommerce.com.br"
-      },
-      "description": "Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop.",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "BRL",
-        "price": "0",
-        "description": "Planos Bronze, Gold e Platinum disponíveis conforme a escalabilidade do negócio."
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "NOX Commerce",
-      "url": "https://noxcommerce.com.br",
-      "logo": "./logo_nox_commerce.png",
-      "description": "Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+55-48-99105-1318",
-        "contactType": "sales",
-        "areaServed": "BR",
-        "availableLanguage": "Portuguese"
-      }
-    }
-    </script>
+    
 </head>
 <body x-data="{ 
     currentPage: 'home', 
@@ -924,7 +885,6 @@
                     .catch(err => console.error('SW error:', err));
             });
         }
-    </script>
     </script>
     <script type="application/ld+json">
     {
