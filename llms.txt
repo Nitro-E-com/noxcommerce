@@ -1,0 +1,36 @@
+# Nox Commerce - Plataforma de E-commerce B2B e B2C
+
+> Plataforma de e-commerce customizável para Indústria, Atacado e Varejo com integração ERP em tempo real e foco em transformar vendas complexas em resultados reais.
+
+## Ecossistema de Plataformas
+
+- **NOX B2B (Indústria e Atacado)**: Focado em espelhar a estrutura de representantes externos no digital. Inclui tabelas de preço por cliente, políticas de desconto progressivo, gestão de grade/conjuntos, múltiplos estoques/filiais com login único e faturamento direto via regras fiscais do ERP.
+- **NOX Store (Varejo B2C)**: Focado em performance e conversão. Oferece layout 100% customizável, ferramentas de fidelização, combos promocionais e checkout transparente nativo (Nitro Pay).
+- **NOX E-Shop (Shopping Atacadista)**: Portal unificado para redes de lojas ou distribuidores. Permite pedidos agrupados em carrinho único de múltiplos lojistas e split automático de pagamentos.
+- **NOX inDrop (Dropshipping)**: Solução para faturamento direto ao cliente final utilizando o estoque da indústria, com fluxo logístico automatizado e comissionamento de parceiros.
+
+## Detalhes de Integração e Tecnologia
+
+- **Core Forte ERP**: Sincronização bidirecional em tempo real de pedidos, estoques e clientes. Compatível nativamente com:
+    - **ERPs Atacado/Indústria**: Marconsoft, DevMaster, Deltacon, Smart Sistemas, iBasi, NEO, Tiny e Bling.
+- **Canais de Venda**: Hub integrado para mais de 40 marketplaces, incluindo Mercado Livre, Shopee, Amazon, Magalu, Americanas e Via Varejo.
+- **Pagamentos e Logística**: Gateway Nitro Pay (nativo), Pagar.me, PagSeguro, Cielo e Mercado Pago. Logística via Melhor Envio, Correios, Jadlog e frotas próprias.
+- **Infraestrutura**: Tecnologia Cloud escalável com monitoramento 24/7, suporte a cadastros ilimitados e otimização para dispositivos móveis (Mobile First).
+
+## Funcionalidades de Gestão
+
+- **Painel do Representante**: Gestão de carteira de clientes, acompanhamento de comissões e histórico de pedidos em tempo real.
+- **Marketing e SEO**: Otimização estrutural nativa, integração com RD Station, Meta Pixel e Google Analytics 4 (GA4).
+- **Segmentos Atendidos**: Eletrônicos, Moda, Móveis, Beleza e Semijoias.
+
+## Informações Corporativas e Suporte
+
+- **Localização**: Criciúma, Santa Catarina, Brasil.
+- **Suporte Técnico**: Atendimento humanizado ilimitado via WhatsApp e e-mail, cobrindo do Go-Live à operação diária.
+- **Modelos de Contratação**: Planos Bronze, Gold e Platinum baseados na volumetria e escalabilidade do negócio.
+
+## Links e Recursos (Optional)
+
+- [Demonstração e Especialista](https://api.whatsapp.com/send/?phone=5548991051318&text=Olá! Gostaria de falar com um especialista sobre a plataforma Nox Commerce.)
+- [Instagram Oficial](https://www.instagram.com/nitroecom)
+- [Facebook Oficial](https://www.facebook.com/nitroecom)
