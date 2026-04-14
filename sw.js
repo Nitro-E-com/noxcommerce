@@ -1,48 +1,64 @@
-const CACHE_NAME = 'noxcommerce-cache-v1';
-
-// Arquivos que precisam ser salvos para funcionar offline
-const urlsToCache = [
-  './',
-  './index.html',
-  './manifest.json'
+// Service Worker Simples - Cache First Strategy
+const CACHE_NAME = 'noxcommerce-v1';
+const CRITICAL_ASSETS = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  'https://cdn.tailwindcss.com',
+  'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];
 
-// Instalação do Service Worker (Cacheia os arquivos iniciais)
+// Instalar e cachear assets críticos
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Cache aberto com sucesso');
-        return cache.addAll(urlsToCache);
-      })
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(CRITICAL_ASSETS).catch(() => {
+        console.log('[PWA] Alguns assets não puderam ser cacheados (CDN pode estar indisponível)');
+      });
+    })
   );
-  self.skipWaiting(); // Força a ativação imediata
+  self.skipWaiting();
 });
 
-// Intercepta as requisições de rede (Estratégia: Cache First)
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Retorna do cache se encontrar, senão busca na rede
-        return response || fetch(event.request);
-      })
-  );
-});
-
-// Limpeza de caches antigos quando uma nova versão do app é lançada
+// Ativar e remover caches antigos
 self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
+        cacheNames
+          .filter(name => name !== CACHE_NAME)
+          .map(name => caches.delete(name))
       );
     })
   );
-  self.clients.claim(); // Controla as páginas abertas imediatamente
+  self.clients.claim();
+});
+
+// Fetch: Cache First para tudo
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        if (response) return response;
+        return fetch(event.request).then(response => {
+          if (!response || response.status !== 200) return response;
+          const cache = caches.open(CACHE_NAME);
+          cache.then(c => c.put(event.request, response.clone()));
+          return response;
+        });
+      })
+      .catch(() => {
+        // Retorna placeholder SVG para imagens
+        if (event.request.destination === 'image') {
+          return new Response(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect fill="#e5e7eb" width="200" height="200"/></svg>',
+            { headers: { 'Content-Type': 'image/svg+xml' } }
+          );
+        }
+        return new Response('Não disponível', { status: 503 });
+      })
+  );
 });
