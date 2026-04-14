@@ -56,9 +56,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://api.whatsapp.com">
     
-    <!-- Preload críticos -->
-    <link rel="preload" href="./favicon.png" as="image" type="image/png">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Critical CSS inline -->
     <style>
         /* Critical path CSS */
@@ -126,7 +124,7 @@
     <header :class="scrolled ? 'glass-nav shadow-lg py-3' : 'bg-transparent py-5'" class="fixed w-full top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <a href="#" @click.prevent="navigate('home')" class="flex items-center">
-                <img loading="lazy" src="./logo_nox_commerce.png" alt="NOX Commerce | Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop." class="h-10 md:h-12 object-contain">
+                <img src="./logo_nox_commerce.png" alt="NOX Commerce | Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop." class="h-10 md:h-12 object-contain">
             </a>
 
             <!-- Menu Desktop -->
@@ -155,7 +153,7 @@
         <!-- Mobile Menu -->
         <div x-show="mobileMenu" x-cloak class="lg:hidden bg-white fixed inset-0 z-40 p-8 flex flex-col space-y-6 text-xl font-bold">
             <div class="flex justify-between items-center mb-8">
-                <img loading="lazy" src="./logo_nox_commerce.png" alt="NOX Commerce | Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop." class="h-10">
+                <img src="./logo_nox_commerce.png" alt="NOX Commerce | Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop." class="h-10">
                 <button @click="mobileMenu = false"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <a href="#" @click.prevent="navigate('home')">Início</a>
@@ -854,8 +852,6 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-
-    <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
