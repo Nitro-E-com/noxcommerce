@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nox Commerce</title>
+    <meta name="description" content="Transforme vendas complexas em resultados reais. Plataforma de e-commerce modular para Indústria, Atacado e Varejo com integração ERP em tempo real.">
+    <meta name="keywords" content="E-commerce B2B, Plataforma B2C, Integração ERP Real-time, Marketplace Hub, E-commerce para Indústria, NOX Store, NOX inDrop">
+    <meta name="author" content="Nox Commerce">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NOX Commerce | Transforme vendas complexas em resultados reais">
+    <meta property="og:description" content="Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop.">
+    <meta property="og:url" content="https://noxcommerce.com.br/">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/1e293b/ffffff?text=NOX+Commerce">
+    <link id="favicon" rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="canonical" href="https://noxcommerce.com.br">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nox: {
+                            dark: '#111827',
+                            purple: '#4c1d95',
+                            pink: '#be185d',
+                            accent: '#0ea5e9',
+                            slate: '#475569'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass-nav { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8); }
+        .gradient-nox { background: linear-gradient(135deg, #4c1d95 0%, #be185d 100%); }
+        .page-enter { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "NOX Commerce",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "provider": {
+        "@type": "Organization",
+        "name": "Nox Commerce",
+        "url": "https://noxcommerce.com.br"
+      },
+      "description": "Plataforma de e-commerce modular e customizável para B2B, B2C, Marketplaces e Dropshipping estruturado.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "BRL",
+        "price": "0",
+        "description": "Planos Bronze, Gold e Platinum disponíveis conforme a escalabilidade do negócio."
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NOX Commerce",
+      "url": "https://noxcommerce.com.br",
+      "logo": "img39.jpg",
+      "description": "Plataforma de e-commerce que integra loja virtual, B2B, catálogo digital, Shopping B2B e marketplaces em um único ecossistema.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-48-99105-1318",
+        "contactType": "sales",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese"
+      }
+    }
+    </script>
+</head>
+<body x-data="{ 
+    currentPage: 'home', 
+    mobileMenu: false,
+    scrolled: false,
+    whatsappUrl: 'https://api.whatsapp.com/send/?phone=5548991051318&text=Olá! Gostaria de falar com um especialista sobre a plataforma Nox Commerce.',
+    navigate(page) {
+        this.currentPage = page;
+        window.scrollTo(0, 0);
+        this.mobileMenu = false;
+    }
+}" @scroll.window="scrolled = (window.pageYOffset > 50)" class="bg-white text-gray-900 font-sans">
+
+    <!-- HEADER INTEGRADO -->
+    <header :class="scrolled ? 'glass-nav shadow-lg py-3' : 'bg-transparent py-5'" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="#" @click.prevent="navigate('home')" class="flex items-center">
+                <img src="logo_nox_commerce.png" alt="NOX Commerce" class="h-10 md:h-12 object-contain">
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-bold uppercase tracking-tight">
+                <div class="relative group">
+                    <button class="hover:text-nox-purple flex items-center gap-1">Plataformas <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-xl rounded-xl p-4 w-64 border border-gray-100 top-full">
+                        <a href="#" @click.prevent="navigate('nox-b2b')" class="block p-2 hover:bg-gray-50 rounded">NOX B2B</a>
+                        <a href="#" @click.prevent="navigate('nox-store-b2c')" class="block p-2 hover:bg-gray-50 rounded">NOX Store B2C</a>
+                        <a href="#" @click.prevent="navigate('nox-eshop')" class="block p-2 hover:bg-gray-50 rounded">NOX E-Shop</a>
+                        <a href="#" @click.prevent="navigate('nox-indrop')" class="block p-2 hover:bg-gray-50 rounded">NOX inDrop</a>
+                    </div>
+                </div>
+                <a href="#" @click.prevent="navigate('integracoes')" class="hover:text-nox-purple">Integrações</a>
+                <!--<a href="#" @click.prevent="navigate('funcionalidades')" class="hover:text-nox-purple">Funcionalidades</a>-->
+                <a :href="whatsappUrl" target="_blank" class="bg-nox-dark text-white px-5 py-2 rounded-full hover:bg-nox-purple transition shadow-md">
+                    Fale com Especialista
+                </a>
+            </nav>
+
+            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-2xl">
+                <i class="fa-solid" :class="mobileMenu ? 'fa-xmark' : 'fa-bars'"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak class="lg:hidden bg-white fixed inset-0 z-40 p-8 flex flex-col space-y-6 text-xl font-bold">
+            <div class="flex justify-between items-center mb-8">
+                <img src="img39.jpg" alt="Logo" class="h-10">
+                <button @click="mobileMenu = false"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <a href="#" @click.prevent="navigate('home')">Início</a>
+            <a href="#" @click.prevent="navigate('nox-b2b')">NOX B2B</a>
+            <a href="#" @click.prevent="navigate('nox-store-b2c')">NOX Store B2C</a>
+            <a href="#" @click.prevent="navigate('nox-eshop')">NOX E-Shop</a>
+            <a href="#" @click.prevent="navigate('nox-indrop')">NOX inDrop</a>
+            <a href="#" @click.prevent="navigate('integracoes')">Integrações</a>
+            <a :href="whatsappUrl" class="bg-nox-purple text-white py-4 rounded-xl text-center">Falar com Especialista</a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO DINÂMICO -->
+    <main class="pt-20">
+        
+        <!-- HOME PAGE -->
+        <template x-if="currentPage === 'home'">
+            <div class="page-enter">
+                <!-- 1. Hero -->
+                <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900 text-white">
+                    <!-- Background decorative elements -->
+                    <div class="absolute inset-0 opacity-20">
+                        <div class="absolute -top-24 -right-24 w-96 h-96 bg-nox-purple rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+                        <div class="absolute top-48 -left-24 w-96 h-96 bg-nox-pink rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6">
+                            Transformando vendas complexas em <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">resultados reais</span>.
+                        </h1>
+                        <p class="mt-4 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light mb-10">
+                            Plataforma de e-commerce modular e customizável. Digitalize operações na Indústria, Atacado e Varejo com integração real-time.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <a href="#plataformas" class="bg-gradient-to-r from-nox-purple to-nox-pink text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-purple-500/30 transition transform hover:-translate-y-1">
+                                Conheça o Ecossistema
+                            </a>
+                            <a :href="whatsappUrl" target="_blank"  class="bg-transparent border-2 border-slate-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-800 hover:border-slate-500 transition">
+                                Agende uma Demo
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Problema -->
+                <section class="py-20 bg-gray-50 text-center">
+                    <div class="max-w-4xl mx-auto px-4">
+                        <h2 class="text-3xl font-black mb-8 text-gray-800 uppercase tracking-tighter">O Desafio do Mercado Atual</h2>
+                        <p class="text-xl text-gray-600 leading-relaxed">Muitas empresas tentam crescer com plataformas engessadas que exigem que o negócio se adapte à tecnologia. O resultado é <span class="font-bold text-nox-pink">retrabalho, erros de estoque e perda de vendas complexas.</span></p>
+                    </div>
+                </section>
+
+                <!-- 2. Problema do Mercado -->
+                <section class="py-20 bg-slate-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="lg:flex lg:items-center lg:justify-between gap-12">
+                            <div class="lg:w-1/2 mb-10 lg:mb-0">
+                                <h2 class="text-3xl font-bold text-slate-900 mb-6">O digital não é mais tendência, <span class="gradient-text">é sobrevivência.</span></h2>
+                                <p class="text-lg text-slate-600 mb-4">O e-commerce B2C brasileiro movimenta mais de R$ 200 bilhões. No B2B, o crescimento é de 13,3% ao ano. Marcas que estão no digital conquistam novos mercados e fidelizam clientes.</p>
+                                <p class="text-lg text-slate-600 mb-6">Integrar soluções digitais à equipe comercial deixou de ser opcional para se tornar o seu maior diferencial competitivo.</p>
+                                
+                                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start gap-4">
+                                    <div class="bg-green-100 text-green-600 p-3 rounded-lg"><i class="fa-solid fa-chart-line text-xl"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Nossa Missão</h4>
+                                        <p class="text-slate-600 text-sm mt-1">Conectar empresas ao mundo digital de forma simples e eficiente, fortalecendo o mercado brasileiro.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 relative">
+                                <img src="https://www.nitroecom.com.br/wp-content/uploads/img-diferencias-marketplace-home-jpg.webp" alt="Equipe analisando dados no E-commerce" class="rounded-2xl shadow-2xl object-cover w-full h-auto border border-slate-200">
+                                <!-- Decorative floating card -->
+                                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                                    <div class="bg-blue-100 text-blue-600 p-2 rounded-full h-12 w-12 flex items-center justify-center"><i class="fa-solid fa-server"></i></div>
+                                    <div>
+                                        <p class="text-xs text-slate-500 font-bold uppercase">Integração ERP</p>
+                                        <p class="text-sm font-bold text-slate-900">Sincronização Real-time</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Solução -->
+                <section class="py-24">
+                    <div class="max-w-7xl mx-auto px-4">
+                        <div class="grid lg:grid-cols-2 gap-16 items-center">
+                            <div>
+                                <h2 class="text-4xl font-black mb-6">A Solução NOX: Adaptada ao seu negócio</h2>
+                                <p class="text-gray-600 mb-8">Nossa plataforma não é apenas uma loja virtual. É um ecossistema que integra loja, B2B, catálogo e marketplaces em um único core forte sincronizado ao seu ERP.</p>
+                                <ul class="space-y-4 font-bold">
+                                    <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-nox-purple"></i> Integração em tempo real</li>
+                                    <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-nox-purple"></i> Escalabilidade multi-canal</li>
+                                    <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-nox-purple"></i> Automação completa de processos</li>
+                                </ul>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-nox-dark p-8 rounded-3xl text-white">
+                                    <h3 class="text-2xl font-black mb-2">10 Anos</h3>
+                                    <p class="text-xs opacity-70 uppercase">Experiência no mercado</p>
+                                </div>
+                                <div class="bg-gray-100 p-8 rounded-3xl">
+                                    <h3 class="text-2xl font-black mb-2">ERP</h3>
+                                    <p class="text-xs opacity-70 uppercase">Integração Nativa</p>
+                                </div>
+                                <div class="bg-gray-100 p-8 rounded-3xl">
+                                    <h3 class="text-2xl font-black mb-2">Cloud</h3>
+                                    <p class="text-xs opacity-70 uppercase">Alta Estabilidade</p>
+                                </div>
+                                <div class="bg-nox-pink p-8 rounded-3xl text-white">
+                                    <h3 class="text-2xl font-black mb-2">24/7</h3>
+                                    <p class="text-xs opacity-70 uppercase">Monitoramento</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Plataformas NOX (Core Service Area) -->
+                <section id="plataformas" class="py-12 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-3xl mx-auto mb-16">
+                            <span class="text-nox-purple font-bold tracking-wider uppercase text-sm">O Ecossistema</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">Uma solução para cada modelo de negócio</h2>
+                            <p class="text-lg text-slate-600">Não adapte sua operação à plataforma. Nossa tecnologia se adapta à sua operação comercial, tributária e logística.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            
+                            <!-- B2B Card -->
+                            <div @click="navigate('nox-b2b')" class="cursor-pointer group bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-nox-dark hover:shadow-xl transition duration-300">
+                                <div class="w-16 h-16 bg-nox-dark text-white rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition transform">
+                                    <i class="fa-solid fa-industry"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3">NOX B2B</h3>
+                                <p class="text-nox-purple font-semibold mb-4">Para Indústria e Atacado</p>
+                                <p class="text-slate-600 mb-6 min-h-[80px]">Projeto escopado exclusivamente para sua empresa. Espelha exatamente as condições de venda do seu representante no ambiente digital.</p>
+                                <ul class="space-y-2 mb-8 text-sm text-slate-600">
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Venda restrita para CNPJ</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Preços e Tributos personalizados</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Múltiplos estoques e Filiais (Login Único)</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Catálogo interativo e Pré-venda</li>
+                                </ul>
+                                <a class="text-nox-dark font-bold hover:text-nox-purple flex items-center transition">
+                                    Explorar NOX B2B <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                            </div>
+
+                            <!-- Store Card -->
+                            <div @click="navigate('nox-store-b2c')" class="cursor-pointer group bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-nox-purple hover:shadow-xl transition duration-300">
+                                <div class="w-16 h-16 bg-nox-purple text-white rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition transform">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3">NOX Store</h3>
+                                <p class="text-nox-pink font-semibold mb-4">Para Lojistas (Varejo B2C)</p>
+                                <p class="text-slate-600 mb-6 min-h-[80px]">Migre do varejo físico para o online com alta performance. Plataforma focada em conversão e experiência mobile first.</p>
+                                <ul class="space-y-2 mb-8 text-sm text-slate-600">
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Setup rápido e implantação assistida</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Layout 100% customizável</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Checkout Transparente (Nitro Pay)</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> SEO Nativo e ferramentas de Marketing</li>
+                                </ul>
+                                <a class="text-nox-purple font-bold hover:text-nox-pink flex items-center transition">
+                                    Explorar NOX Store <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                            </div>
+
+                            <!-- E-Shop Card -->
+                            <div @click="navigate('nox-eshop')" class="cursor-pointer group bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-nox-pink hover:shadow-xl transition duration-300">
+                                <div class="w-16 h-16 bg-nox-pink text-white rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition transform">
+                                    <i class="fa-solid fa-bag-shopping"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3">NOX E-Shop</h3>
+                                <p class="text-blue-500 font-semibold mb-4">Shopping Atacadista B2B</p>
+                                <p class="text-slate-600 mb-6 min-h-[80px]">Conecta lojistas e compradores em um ecossistema integrado. Um portal unificado com autonomia para cada lojista.</p>
+                                <ul class="space-y-2 mb-8 text-sm text-slate-600">
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Portal estilo marketplace</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Pedidos agrupados em carrinho único</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Regras comerciais individuais por lojista</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Gestão de grades complexas</li>
+                                </ul>
+                                <a class="text-nox-pink font-bold hover:text-blue-500 flex items-center transition">
+                                    Explorar NOX E-Shop <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                            </div>
+
+                            <!-- InDrop Card -->
+                            <div @click="navigate('nox-indrop')" class="cursor-pointer group bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-blue-500 hover:shadow-xl transition duration-300">
+                                <div class="w-16 h-16 bg-blue-500 text-white rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition transform">
+                                    <i class="fa-solid fa-parachute-box"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-3">NOX inDrop</h3>
+                                <p class="text-nox-dark font-semibold mb-4">Logística e Dropshipping</p>
+                                <p class="text-slate-600 mb-6 min-h-[80px]">Disponibilize seu estoque B2B para que lojistas vendam no modelo dropshipping. Fature direto para o cliente final.</p>
+                                <ul class="space-y-2 mb-8 text-sm text-slate-600">
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Criação de loja Drop em 1 clique</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Acesso total ao estoque da indústria</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Comissionamento ou Split de pagamento</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Fluxo logístico automatizado</li>
+                                </ul>
+                                <a class="text-blue-500 font-bold hover:text-nox-dark flex items-center transition">
+                                    Explorar NOX inDrop <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 6. Benefícios Técnicos -->
+                <section id="beneficios" class="py-20 bg-slate-900 text-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Por que escolher a NOX Commerce?</h2>
+                            <p class="text-slate-400 text-lg">Tecnologia desenvolvida para resolver as complexidades do mercado brasileiro.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <div class="text-center">
+                                <div class="bg-slate-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-blue-400 border border-slate-700">
+                                    <i class="fa-solid fa-code-compare"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Integração ERP API</h4>
+                                <p class="text-slate-400 text-sm">Sincronização em tempo real de produtos, estoques, clientes e pedidos. Regras comerciais do ERP direto na web.</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-slate-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-nox-pink border border-slate-700">
+                                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">SEO de Alta Performance</h4>
+                                <p class="text-slate-400 text-sm">Otimização estrutural com URLs amigáveis, metatags, sitemaps e Schema.org nativos para dominar o Google.</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-slate-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-nox-purple border border-slate-700">
+                                    <i class="fa-solid fa-headset"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Suporte Humanizado</h4>
+                                <p class="text-slate-400 text-sm">Time de especialistas disponível via WhatsApp. Acompanhamento de perto do Go-Live às evoluções diárias.</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-slate-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl text-green-400 border border-slate-700">
+                                    <i class="fa-solid fa-rocket"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Plataforma Escalável</h4>
+                                <p class="text-slate-400 text-sm">Infraestrutura em nuvem preparada para crescer junto com você. Cadastros e pageviews ilimitados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. CTA Final -->
+                <section class="py-24 text-center">
+                    <div class="max-w-4xl mx-auto px-4">
+                        <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">Chega de tentar adaptar sua empresa a sistemas engessados.</h2>
+                        <p class="text-xl text-gray-600 mb-10">Agende agora uma conversa com nossos especialistas e descubra o poder da NOX Commerce.</p>
+                        <a :href="whatsappUrl" target="_blank" class="gradient-nox text-white px-12 py-5 rounded-full font-black text-xl hover:scale-105 transition shadow-2xl inline-block">Falar com um Especialista Agora</a>
+                    </div>
+                </section>
+
+                <!-- 5. Integrações, Marketplaces e Parceiros -->
+                <section id="integracoes" class="py-20 bg-slate-50 border-t border-slate-200">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold text-slate-900 mb-4">Um Hub Completo de Integrações</h2>
+                            <p class="text-slate-600 max-w-2xl mx-auto">Sua loja conectada às principais ferramentas, ERPs e Marketplaces do mercado, automatizando toda a sua operação.</p>
+                        </div>
+
+                        <!-- Integrações Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <!-- ERPs -->
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                                <div class="text-nox-dark mb-4 text-2xl"><i class="fa-solid fa-database"></i></div>
+                                <h4 class="font-bold text-slate-900 mb-3 border-b pb-2">Principais ERPs</h4>
+                                <ul class="text-sm text-slate-600 space-y-2">
+                                    <li><a href="https://marconsoft.com.br/" target="_blank" title="Marconsoft" class="">Marconsoft</a></li>
+                                    <li><a href="https://devmaster.com.br/" target="_blank" title="DevMaster | Sistema de Gestão ERP" class="">Dev Master</a></li>
+                                    <li><a href="https://deltacon.com.br/" target="_blank" title="Deltacon | Sistema ERP Web | Módulos Customizados" class="">Deltacon</a></li>
+                                    <li><a href="https://www.smartsis.com/" target="_blank" title="Smart Sistemas | Gestão para Confecção, Atacado e Moda" class="">Smart Sistemas</a></li>
+                                    <li><a href="https://www.ibasi.com.br/" target="_blank" title="iBasi - Tecnologia e Sistemas" class="">iBasi</a></li>
+                                    <li><a href="https://neosistemas.com.br/" target="_blank" title="NEO | Sistema de gestão ERP para indústria" class="">NEO</a></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Marketplaces -->
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                                <div class="text-nox-purple mb-4 text-2xl"><i class="fa-solid fa-shop"></i></div>
+                                <h4 class="font-bold text-slate-900 mb-3 border-b pb-2">+40 Marketplaces</h4>
+                                <ul class="text-sm text-slate-600 space-y-2">
+                                    <li>Mercado Livre</li>
+                                    <li>Shopee</li>
+                                    <li>Amazon</li>
+                                    <li>Magalu</li>
+                                    <li>Americanas</li>
+                                    <li>Via Varejo</li>
+                                </ul>
+                            </div>
+
+                            <!-- Pagamentos -->
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                                <div class="text-nox-pink mb-4 text-2xl"><i class="fa-solid fa-credit-card"></i></div>
+                                <h4 class="font-bold text-slate-900 mb-3 border-b pb-2">Pagamentos</h4>
+                                <ul class="text-sm text-slate-600 space-y-2">
+                                    <li class="font-bold text-nox-pink">Nitro Pay (Nativo)</li>
+                                    <li>Pagar.me</li>
+                                    <li>PagSeguro</li>
+                                    <li>Cielo</li>
+                                    <li>E-Rede</li>
+                                    <li>Mercado Pago</li>
+                                </ul>
+                            </div>
+
+                            <!-- Logística & MKT -->
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                                <div class="text-blue-500 mb-4 text-2xl"><i class="fa-solid fa-truck-fast"></i></div>
+                                <h4 class="font-bold text-slate-900 mb-3 border-b pb-2">Logística e Marketing</h4>
+                                <ul class="text-sm text-slate-600 space-y-2">
+                                    <li>Melhor Envio </li>
+                                    <li>Correios</li>
+                                    <li>Jadlog</li>
+                                    <li>Transportadoras própria</li>
+                                    <li>RD Station</li>
+                                    <li>Meta Pixel</li>
+                                    <li>Google Analytics 4</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-10">
+                            <a :href="whatsappUrl" target="_blank"  class="text-nox-purple font-semibold hover:underline">Ver todas as integrações disponíveis &rarr;</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. Segmentos -->
+                <section class="py-24 bg-nox-dark text-white">
+                    <div class="max-w-7xl mx-auto px-4">
+                        <h2 class="text-3xl font-black mb-12 text-center">Soluções para Diversos Segmentos</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 text-center hover:bg-white/10 transition">
+                                <i class="fa-solid fa-mobile-screen mb-4 text-2xl text-nox-accent"></i>
+                                <p class="font-bold">Eletrônicos</p>
+                            </div>
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 text-center hover:bg-white/10 transition">
+                                <i class="fa-solid fa-shirt mb-4 text-2xl text-nox-pink"></i>
+                                <p class="font-bold">Moda</p>
+                            </div>
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 text-center hover:bg-white/10 transition">
+                                <i class="fa-solid fa-couch mb-4 text-2xl text-nox-accent"></i>
+                                <p class="font-bold">Móveis</p>
+                            </div>
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 text-center hover:bg-white/10 transition">
+                                <i class="fa-solid fa-spray-can-sparkles mb-4 text-2xl text-nox-pink"></i>
+                                <p class="font-bold">Beleza</p>
+                            </div>
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10 text-center hover:bg-white/10 transition">
+                                <i class="fa-solid fa-utensils mb-4 text-2xl text-nox-accent"></i>
+                                <p class="font-bold">Alimentação</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                 <!-- FAQ Section (Alpine.js) -->
+                <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+                    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h2 class="text-3xl font-bold text-center text-slate-900 mb-10">Perguntas Frequentes</h2>
+                        
+                        <div class="space-y-4" x-data="{ selected: 0 }">
+                            <!-- FAQ Item 1 -->
+                            <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                                <button @click="selected !== 1 ? selected = 1 : selected = null" class="w-full text-left px-6 py-4 font-semibold text-slate-800 flex justify-between items-center focus:outline-none">
+                                    <span>Precisa de CNPJ para usar a plataforma?</span>
+                                    <i class="fa-solid fa-chevron-down transition-transform duration-300" :class="{'rotate-180': selected === 1}"></i>
+                                </button>
+                                <div x-show="selected === 1" x-collapse x-cloak>
+                                    <div class="px-6 pb-4 text-slate-600 text-sm">
+                                        Sim, especialmente para operar nossa solução <strong>NOX B2B</strong> ou <strong>NOX E-Shop</strong>, pois os recursos são otimizados para regras tributárias e comerciais corporativas.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 2 -->
+                            <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                                <button @click="selected !== 2 ? selected = 2 : selected = null" class="w-full text-left px-6 py-4 font-semibold text-slate-800 flex justify-between items-center focus:outline-none">
+                                    <span>A plataforma possui suporte técnico?</span>
+                                    <i class="fa-solid fa-chevron-down transition-transform duration-300" :class="{'rotate-180': selected === 2}"></i>
+                                </button>
+                                <div x-show="selected === 2" x-collapse x-cloak>
+                                    <div class="px-6 pb-4 text-slate-600 text-sm">
+                                        Com certeza! A NOX Commerce é reconhecida pelo seu <strong>suporte humanizado e ilimitado</strong>. Nossa equipe está sempre disponível via WhatsApp e E-mail para tirar dúvidas e realizar acompanhamento próximo, desde o Go-Live até a operação diária.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                                <button @click="selected !== 3 ? selected = 3 : selected = null" class="w-full text-left px-6 py-4 font-semibold text-slate-800 flex justify-between items-center focus:outline-none">
+                                    <span>O layout da loja virtual é customizável?</span>
+                                    <i class="fa-solid fa-chevron-down transition-transform duration-300" :class="{'rotate-180': selected === 3}"></i>
+                                </button>
+                                <div x-show="selected === 3" x-collapse x-cloak>
+                                    <div class="px-6 pb-4 text-slate-600 text-sm">
+                                        Sim. Oferecemos <strong>total liberdade criativa</strong>. A identidade visual da sua marca é aplicada de forma personalizada no layout, garantindo uma experiência de navegação única e focada em dispositivos móveis (Mobile First).
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 4 -->
+                            <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                                <button @click="selected !== 4 ? selected = 4 : selected = null" class="w-full text-left px-6 py-4 font-semibold text-slate-800 flex justify-between items-center focus:outline-none">
+                                    <span>Quais são as taxas sobre vendas da plataforma?</span>
+                                    <i class="fa-solid fa-chevron-down transition-transform duration-300" :class="{'rotate-180': selected === 4}"></i>
+                                </button>
+                                <div x-show="selected === 4" x-collapse x-cloak>
+                                    <div class="px-6 pb-4 text-slate-600 text-sm">
+                                        Nossas taxas variam de acordo com o plano (Bronze, Gold, Platinum). Geralmente, ficam entre <strong>1,0% e 3,0% para B2C</strong> e <strong>1,0% e 2,0% para B2B</strong>. Recomendamos falar com um especialista para encontrar o plano ideal para a sua volumetria de vendas.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="py-20 bg-gradient-to-br from-nox-dark via-slate-800 to-nox-purple text-white relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+                        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute w-full h-full">
+                            <path d="M0,100 C30,0 70,0 100,100 Z" fill="#ffffff"/>
+                        </svg>
+                    </div>
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                        <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Pronto para digitalizar seu atacado ou varejo?</h2>
+                        <p class="text-lg text-slate-300 mb-10">Agende uma demonstração gratuita e descubra como a NOX Commerce pode se conectar ao seu ERP e impulsionar suas vendas.</p>
+                        <a :href="whatsappUrl" target="_blank"  class="inline-block bg-white text-nox-dark px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-100 hover:shadow-xl transition transform hover:-translate-y-1">
+                            Falar com um Especialista
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </template>
+
+        <!-- NOX B2B PAGE -->
+        <template x-if="currentPage === 'nox-b2b'">
+            <div class="page-enter">
+                <section class="bg-nox-dark text-white py-24">
+                    <div class="max-w-7xl mx-auto px-4">
+                        <div class="flex flex-col md:flex-row gap-12 items-center">
+                            <div class="md:w-1/2">
+                                <h1 class="text-5xl font-black mb-6">NOX B2B</h1>
+                                <p class="text-xl opacity-80 mb-8 font-light italic">"A plataforma que se adapta a sua operação. Você não precisa mudar sua estrutura para ter uma plataforma B2B."</p>
+                                <div class="bg-nox-purple p-6 rounded-2xl">
+                                    <h4 class="font-bold mb-4"><i class="fa-solid fa-list-check mr-2"></i>Recursos Exclusivos:</h4>
+                                    <ul class="space-y-3 text-sm">
+                                        <li>• Tabelas de Preço por Cliente</li>
+                                        <li>• Políticas de Desconto Progressivo</li>
+                                        <li>• Grade de Produtos e Conjuntos</li>
+                                        <li>• Pagamentos Condicionais</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2">
+                                <div class="bg-gray-800 p-8 rounded-[40px] border border-gray-700 shadow-2xl">
+                                    <h3 class="text-2xl font-bold mb-6">Foco na Indústria</h3>
+                                    <p class="text-gray-400 mb-6 leading-relaxed">Desenvolvida para atender as particularidades do mercado B2B brasileiro, integrando força de vendas externa, representantes e clientes diretos em um portal unificado.</p>
+                                    <a :href="whatsappUrl" target="_blank" class="w-full bg-white text-nox-dark py-4 rounded-xl font-black text-center block hover:bg-nox-purple hover:text-white transition">Solicitar Orçamento B2B</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-20 max-w-7xl mx-auto px-4">
+                    <h2 class="text-3xl font-black mb-12">Diferenciais B2B</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="p-8 bg-gray-50 rounded-3xl">
+                            <i class="fa-solid fa-rotate text-3xl text-nox-purple mb-4"></i>
+                            <h4 class="font-bold mb-2">Pedidos Recorrentes</h4>
+                            <p class="text-sm text-gray-500">Histórico completo para recompras rápidas em um clique.</p>
+                        </div>
+                        <div class="p-8 bg-gray-50 rounded-3xl">
+                            <i class="fa-solid fa-user-gear text-3xl text-nox-purple mb-4"></i>
+                            <h4 class="font-bold mb-2">Painel do Representante</h4>
+                            <p class="text-sm text-gray-500">Gestão de carteira, comissões e pedidos em tempo real.</p>
+                        </div>
+                        <div class="p-8 bg-gray-50 rounded-3xl">
+                            <i class="fa-solid fa-file-invoice-dollar text-3xl text-nox-purple mb-4"></i>
+                            <h4 class="font-bold mb-2">Regras Fiscais ERP</h4>
+                            <p class="text-sm text-gray-500">Cálculo de impostos e prazos direto do seu sistema central.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </template>
+
+        <!-- NOX STORE B2C PAGE -->
+        <template x-if="currentPage === 'nox-store-b2c'">
+            <div class="page-enter">
+                <section class="bg-nox-pink text-white py-24">
+                    <div class="max-w-7xl mx-auto px-4 text-center">
+                        <h1 class="text-5xl font-black mb-6 uppercase tracking-tighter">NOX Store</h1>
+                        <p class="text-2xl max-w-2xl mx-auto mb-12">Performance e UX de ponta para o seu varejo vender mais, todos os dias.</p>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                            <div class="bg-white/20 p-6 rounded-2xl backdrop-blur-md">
+                                <i class="fa-solid fa-bolt mb-2"></i>
+                                <p class="text-sm font-bold">Alta Velocidade</p>
+                            </div>
+                            <div class="bg-white/20 p-6 rounded-2xl backdrop-blur-md">
+                                <i class="fa-solid fa-mobile-button mb-2"></i>
+                                <p class="text-sm font-bold">Mobile First</p>
+                            </div>
+                            <div class="bg-white/20 p-6 rounded-2xl backdrop-blur-md">
+                                <i class="fa-solid fa-magnifying-glass mb-2"></i>
+                                <p class="text-sm font-bold">SEO Nativo</p>
+                            </div>
+                            <div class="bg-white/20 p-6 rounded-2xl backdrop-blur-md">
+                                <i class="fa-solid fa-shield-halved mb-2"></i>
+                                <p class="text-sm font-bold">Security Pro</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-24 max-w-7xl mx-auto px-4">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div class="bg-gray-100 h-96 rounded-3xl flex items-center justify-center border-4 border-dashed border-gray-200">
+                             <p class="text-gray-400 font-bold italic">[Protótipo de Checkout Transparente]</p>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-black mb-6">Convertendo Cliques em Clientes</h2>
+                            <p class="text-gray-600 mb-8 leading-relaxed">A NOX Store oferece ferramentas completas de marketing: Combos, Promoções Automáticas, Fidelização e um Checkout otimizado que reduz o abandono de carrinho.</p>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+                                    <i class="fa-solid fa-credit-card text-nox-pink"></i>
+                                    <span class="font-bold">Multi-gateway de Pagamento</span>
+                                </div>
+                                <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+                                    <i class="fa-solid fa-truck-fast text-nox-pink"></i>
+                                    <span class="font-bold">Cálculo de Frete Inteligente</span>
+                                </div>
+                            </div>
+                            <a :href="whatsappUrl" target="_blank" class="mt-8 inline-block bg-nox-pink text-white px-8 py-4 rounded-full font-bold">Criar minha Loja Varejo</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </template>
+
+        <!-- NOX E-SHOP PAGE -->
+        <template x-if="currentPage === 'nox-eshop'">
+            <div class="page-enter">
+                <section class="bg-gradient-to-r from-nox-purple to-nox-accent text-white py-24">
+                    <div class="max-w-7xl mx-auto px-4 text-center">
+                        <h1 class="text-5xl font-black mb-6">NOX E-Shop</h1>
+                        <h2 class="text-2xl font-light mb-12">A plataforma de e-commerce para Shopping Atacadista em suas mãos.</h2>
+                        <p class="max-w-3xl mx-auto text-lg opacity-90 leading-relaxed">Centralize a gestão de múltiplos lojistas em um único portal. Perfeito para shoppings atacadistas, redes de lojas, grandes distribuidores e ecossistemas de vendas que exigem controle unificado e split de pagamentos.</p>
+                    </div>
+                </section>
+                <section class="py-24 max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-8">
+                    <div class="bg-white border p-8 rounded-3xl shadow-sm hover:border-nox-purple transition">
+                        <h3 class="text-xl font-black mb-4">Pedidos Agrupados</h3>
+                        <p class="text-sm text-gray-500">Um único carrinho para compras de múltiplos lojistas, facilitando o pagamento direto no portal.</p>
+                    </div>
+                    <div class="bg-white border p-8 rounded-3xl shadow-sm hover:border-nox-purple transition">
+                        <h3 class="text-xl font-black mb-4">Split de Pagamento</h3>
+                        <p class="text-sm text-gray-500">Divisão automática de valores entre o shopping e o lojista, integrado aos principais gateways.</p>
+                    </div>
+                    <div class="bg-white border p-8 rounded-3xl shadow-sm hover:border-nox-purple transition">
+                        <h3 class="text-xl font-black mb-4">Painéis Individuais</h3>
+                        <p class="text-sm text-gray-500">Cada lojista gerencia seus produtos, promoções, entregas e condições de forma autônoma.</p>
+                    </div>
+                </section>
+            </div>
+        </template>
+
+        <!-- NOX INDROP PAGE -->
+        <template x-if="currentPage === 'nox-indrop'">
+            <div class="page-enter">
+                <section class="bg-nox-dark text-white py-24">
+                    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
+                        <h1 class="text-5xl font-black mb-6">NOX inDrop</h1>
+                        <p class="text-xl mb-12 text-nox-accent font-bold uppercase tracking-widest">Dropshipping e Catálogo Digital</p>
+                        <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
+                            <div class="bg-white/10 p-8 rounded-3xl text-left border border-white/20">
+                                <h3 class="text-2xl font-black mb-4 text-white">Dropshipping Estruturado</h3>
+                                <p class="text-sm text-gray-400 leading-relaxed">Venda sem estoque através de seus parceiros integrados. A NOX cuida da sincronização de pedidos e fluxo logístico entre fornecedor e cliente final.</p>
+                            </div>
+                            <div class="bg-white/10 p-8 rounded-3xl text-left border border-white/20">
+                                <h3 class="text-2xl font-black mb-4 text-white">Catálogo Interativo</h3>
+                                <p class="text-sm text-gray-400 leading-relaxed">Transforme seus PDFs ou catálogos impressos em versões digitais dinâmicas onde o cliente clica e compra diretamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-24 bg-gray-50">
+                    <div class="max-w-5xl mx-auto px-4 text-center">
+                        <h2 class="text-3xl font-black mb-8 italic">"Modernize sua forma de vender agora."</h2>
+                        <p class="text-gray-600 mb-12">Ideal para marcas que trabalham com revendedores e desejam oferecer uma experiência de compra moderna e sem atritos.</p>
+                        <a :href="whatsappUrl" target="_blank" class="bg-nox-dark text-white px-10 py-4 rounded-full font-bold hover:bg-nox-accent transition">Conhecer o inDrop</a>
+                    </div>
+                </section>
+            </div>
+        </template>
+
+        <!-- INTEGRAÇÕES PAGE -->
+        <template x-if="currentPage === 'integracoes'">
+            <div class="page-enter">
+                <section class="py-24 bg-gray-50">
+                    <div class="max-w-7xl mx-auto px-4 text-center">
+                        <h1 class="text-5xl font-black mb-8">Ecossistema de Integrações</h1>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-16">A NOX Commerce se conecta nativamente com as ferramentas que sua empresa já utiliza, garantindo o "Core Forte" da sua operação.</p>
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 text-left">
+                            <div class="bg-white p-10 rounded-[3rem] shadow-sm">
+                                <h3 class="text-nox-purple font-black text-xs uppercase mb-4 tracking-widest">ERP & Gestão</h3>
+                                <ul class="space-y-3 font-bold text-lg">
+                                    <li>TOTVS</li>
+                                    <li>SAP</li>
+                                    <li>SENIOR</li>
+                                    <li>OMIE</li>
+                                    <li>TINY / BLING</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-10 rounded-[3rem] shadow-sm">
+                                <h3 class="text-nox-pink font-black text-xs uppercase mb-4 tracking-widest">Marketplaces</h3>
+                                <ul class="space-y-3 font-bold text-lg">
+                                    <li>Mercado Livre</li>
+                                    <li>Amazon</li>
+                                    <li>Magalu</li>
+                                    <li>Shopee</li>
+                                    <li>Hubs integradores</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-10 rounded-[3rem] shadow-sm">
+                                <h3 class="text-nox-accent font-black text-xs uppercase mb-4 tracking-widest">Logística & Pagamento</h3>
+                                <ul class="space-y-3 font-bold text-lg">
+                                    <li>Melhor Envio</li>
+                                    <li>NitroPay (Nativo)</li>
+                                    <li>Correios / Transportadoras</li>
+                                    <li>Pagar.me / Antifraude</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </template>
+
+    </main>
+
+    <!-- FOOTER UNIVERSAL -->
+    <footer class="bg-gray-100 py-20 border-t">
+        <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-4 gap-12">
+            <div>
+                <img src="logo_nox_commerce.png" alt="Logo" class="h-10 mb-6 grayscale brightness-0">
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    A Nox commerce está no mercado há 10 anos e se destaca pela sua capacidade de inovação e resolutividade. Tecnologia escalável para crescer junto com seu negócio.
+                </p>
+                <div class="mt-8 flex gap-4 text-gray-400">
+                    <a href="https://www.instagram.com/nitroecom" class="hover:text-nox-purple" target="_blank"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-nox-purple"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                    <a href="https://www.facebook.com/nitroecom" class="hover:text-nox-purple" target="_blank"><i class="fa-brands fa-facebook text-xl"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-black mb-6 uppercase tracking-tighter text-gray-400">Plataformas</h4>
+                <ul class="space-y-3 text-sm font-bold text-gray-600">
+                    <li><a href="#" @click.prevent="navigate('nox-b2b')" class="hover:text-nox-purple">NOX B2B</a></li>
+                    <li><a href="#" @click.prevent="navigate('nox-store-b2c')" class="hover:text-nox-purple">NOX Store B2C</a></li>
+                    <li><a href="#" @click.prevent="navigate('nox-eshop')" class="hover:text-nox-purple">NOX E-Shop</a></li>
+                    <li><a href="#" @click.prevent="navigate('nox-indrop')" class="hover:text-nox-purple">NOX inDrop</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-black mb-6 uppercase tracking-tighter text-gray-400">Institucional</h4>
+                <ul class="space-y-3 text-sm font-bold text-gray-600">
+                    <li><a href="#" @click.prevent="navigate('integracoes')" class="hover:text-nox-purple">Integrações</a></li>
+                    <li><a href="#" class="hover:text-nox-purple">Sobre Nós</a></li>
+                    <li><a href="#" class="hover:text-nox-purple">Casos de Sucesso</a></li>
+                    <li><a href="#" class="hover:text-nox-purple">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-black mb-6 uppercase tracking-tighter text-gray-400">Suporte</h4>
+                <p class="text-sm text-gray-500 mb-6">Suporte técnico ilimitado e humanizado via WhatsApp e E-mail.</p>
+                <a :href="whatsappUrl" target="_blank" class="text-nox-purple font-black text-lg block mb-2 underline">+55 48 99105-1318</a>
+                <p class="text-xs text-gray-400 uppercase font-bold tracking-widest">Criciúma / Brasil</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-20 pt-8 border-t text-center text-[10px] text-gray-400 uppercase tracking-widest font-bold">
+            &copy; 2026 NOX Commerce - Nitro E-com. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a :href="whatsappUrl" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-all z-50 animate-bounce">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
