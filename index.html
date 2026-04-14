@@ -2,24 +2,105 @@
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nox Commerce</title>
-    <meta name="description" content="Transforme vendas complexas em resultados reais. Plataforma de e-commerce modular para Indústria, Atacado e Varejo com integração ERP em tempo real.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nox Commerce - Plataforma de E-commerce B2B e B2C</title>
+    <meta name="description" content="Transforme vendas complexas em resultados reais. Plataforma de e-commerce para Indústria, Atacado e Varejo com integração ERP em tempo real.">
     <meta name="keywords" content="E-commerce B2B, Plataforma B2C, Integração ERP Real-time, Marketplace Hub, E-commerce para Indústria, NOX Store, NOX inDrop">
     <meta name="author" content="Nox Commerce">
+    <meta name="robots" content="index, follow">
+
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     
-    <!-- Open Graph / Social -->
+    <!-- Classic Favicon -->
+    <link id="favicon" rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    
+    <!-- PWA - Web App Configuration -->
+    <meta name="theme-color" content="#4c1d95" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#2a0845" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Nox Commerce">
+    
+    <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="NOX Commerce | Transforme vendas complexas em resultados reais">
     <meta property="og:description" content="Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop.">
     <meta property="og:url" content="https://noxcommerce.com.br/">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630/1e293b/ffffff?text=NOX+Commerce">
-    <link id="favicon" rel="shortcut icon" href="favicon.png" type="image/png">
+    <meta property="og:image" content="./logo_nox_commerce.png">
+    <meta property="og:site_name" content="Nox Commerce">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NOX Commerce">
+    <meta name="twitter:description" content="Transforme vendas complexas em resultados reais">
+    <meta name="twitter:image" content="./logo_nox_commerce.png">
+    
+    <!-- Canonical -->
     <link rel="canonical" href="https://noxcommerce.com.br">
+    
+    <!-- Preconnect e DNS Prefetch para CDNs -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <!-- Critical CSS inline -->
+    <style>
+        /* Critical path CSS */
+        :root {
+            color-scheme: light dark;
+            --primary: #4c1d95;
+            --secondary: #be185d;
+        }
+        
+        html { scroll-behavior: smooth; }
+        [x-cloak] { display: none !important; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+        }
+        
+        .glass-nav { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8); }
+        .gradient-nox { background: linear-gradient(135deg, #4c1d95 0%, #be185d 100%); }
+        
+        .page-enter { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        /* Optimized loading state */
+        .skeleton { 
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root { --bg: #0f172a; --text: #f1f5f9; }
+        }
+    </style>
 
     <script>
         tailwind.config = {
@@ -38,52 +119,7 @@
             }
         }
     </script>
-
-    <style>
-        [x-cloak] { display: none !important; }
-        .glass-nav { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.8); }
-        .gradient-nox { background: linear-gradient(135deg, #4c1d95 0%, #be185d 100%); }
-        .page-enter { animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "NOX Commerce",
-      "operatingSystem": "Web",
-      "applicationCategory": "BusinessApplication",
-      "provider": {
-        "@type": "Organization",
-        "name": "Nox Commerce",
-        "url": "https://noxcommerce.com.br"
-      },
-      "description": "Plataforma de e-commerce modular e customizável para B2B, B2C, Marketplaces e Dropshipping estruturado.",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "BRL",
-        "price": "0",
-        "description": "Planos Bronze, Gold e Platinum disponíveis conforme a escalabilidade do negócio."
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "NOX Commerce",
-      "url": "https://noxcommerce.com.br",
-      "logo": "img39.jpg",
-      "description": "Plataforma de e-commerce que integra loja virtual, B2B, catálogo digital, Shopping B2B e marketplaces em um único ecossistema.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+55-48-99105-1318",
-        "contactType": "sales",
-        "areaServed": "BR",
-        "availableLanguage": "Portuguese"
-      }
-    }
-    </script>
+    
 </head>
 <body x-data="{ 
     currentPage: 'home', 
@@ -101,7 +137,7 @@
     <header :class="scrolled ? 'glass-nav shadow-lg py-3' : 'bg-transparent py-5'" class="fixed w-full top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <a href="#" @click.prevent="navigate('home')" class="flex items-center">
-                <img src="logo_nox_commerce.png" alt="NOX Commerce" class="h-10 md:h-12 object-contain">
+                <img src="./logo_nox_commerce.png" alt="NOX Commerce | Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop." class="h-10 md:h-12 object-contain">
             </a>
 
             <!-- Menu Desktop -->
@@ -130,7 +166,7 @@
         <!-- Mobile Menu -->
         <div x-show="mobileMenu" x-cloak class="lg:hidden bg-white fixed inset-0 z-40 p-8 flex flex-col space-y-6 text-xl font-bold">
             <div class="flex justify-between items-center mb-8">
-                <img src="img39.jpg" alt="Logo" class="h-10">
+                <img src="./logo_nox_commerce.png" alt="NOX Commerce | Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop." class="h-10">
                 <button @click="mobileMenu = false"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <a href="#" @click.prevent="navigate('home')">Início</a>
@@ -162,7 +198,7 @@
                             Transformando vendas complexas em <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">resultados reais</span>.
                         </h1>
                         <p class="mt-4 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light mb-10">
-                            Plataforma de e-commerce modular e customizável. Digitalize operações na Indústria, Atacado e Varejo com integração real-time.
+                            Plataforma de e-commerce customizável. Digitalize operações na Indústria, Atacado e Varejo com integração real-time.
                         </p>
                         <div class="flex flex-col sm:flex-row justify-center gap-4">
                             <a href="#plataformas" class="bg-gradient-to-r from-nox-purple to-nox-pink text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-purple-500/30 transition transform hover:-translate-y-1">
@@ -201,7 +237,7 @@
                                 </div>
                             </div>
                             <div class="lg:w-1/2 relative">
-                                <img src="https://www.nitroecom.com.br/wp-content/uploads/img-diferencias-marketplace-home-jpg.webp" alt="Equipe analisando dados no E-commerce" class="rounded-2xl shadow-2xl object-cover w-full h-auto border border-slate-200">
+                                <img loading="lazy" src="./assets/img/img-diferencias-marketplace-home-jpg.webp" alt="Equipe analisando dados no E-commerce" class="rounded-2xl shadow-2xl object-cover w-full h-auto border border-slate-200">
                                 <!-- Decorative floating card -->
                                 <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
                                     <div class="bg-blue-100 text-blue-600 p-2 rounded-full h-12 w-12 flex items-center justify-center"><i class="fa-solid fa-server"></i></div>
@@ -784,7 +820,7 @@
     <footer class="bg-gray-100 py-20 border-t">
         <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-4 gap-12">
             <div>
-                <img src="logo_nox_commerce.png" alt="Logo" class="h-10 mb-6 grayscale brightness-0">
+                <img loading="lazy" src="logo_nox_commerce.png" alt="Soluções personalizadas que conectam empresas ao digital. Conheça as plataformas NOX B2B, Store, E-Shop e inDrop" class="h-10 mb-6 grayscale brightness-0">
                 <p class="text-gray-500 text-sm leading-relaxed">
                     A Nox commerce está no mercado há 10 anos e se destaca pela sua capacidade de inovação e resolutividade. Tecnologia escalável para crescer junto com seu negócio.
                 </p>
@@ -828,6 +864,89 @@
     <a :href="whatsappUrl" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-all z-50 animate-bounce">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+    <!-- Service Worker Registration -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+            "@type": "SoftwareApplication",
+            "@id": "https://noxcommerce.com.br/",
+            "name": "NOX Commerce",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "description": "Plataforma de e-commerce customizável para Indústria, Atacado e Varejo com integração ERP em tempo real.",
+            "offers": {
+                "@type": "AggregateOffer",
+                "priceCurrency": "BRL",
+                "description": "Planos Bronze, Gold e Platinum disponíveis conforme a escalabilidade do negócio."
+            },
+            "featureList": [
+                "Integração ERP em tempo real",
+                "Venda restrita para CNPJ",
+                "Tabelas de preço por cliente",
+                "Checkout Transparente Nitro Pay",
+                "Gestão de múltiplos estoques e filiais"
+            ]
+            },
+            {
+            "@type": "Organization",
+            "@id": "https://noxcommerce.com.br/",
+            "name": "NOX Commerce",
+            "url": "https://noxcommerce.com.br",
+            "logo": "https://noxcommerce.com.br/logo_nox_commerce.png",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+55-48-99105-1318",
+                "contactType": "sales",
+                "areaServed": "BR",
+                "availableLanguage": "Portuguese"
+            },
+            "sameAs": [
+                "https://www.instagram.com/nitroecom",
+                "https://www.facebook.com/nitroecom"
+            ]
+            },
+            {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                "@type": "Question",
+                "name": "Precisa de CNPJ para usar a plataforma?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim, especialmente para operar nossa solução NOX B2B ou NOX E-Shop, pois os recursos são otimizados para regras tributárias e comerciais corporativas."
+                }
+                },
+                {
+                "@type": "Question",
+                "name": "A plataforma possui suporte técnico?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim, a NOX Commerce oferece suporte humanizado e ilimitado via WhatsApp e E-mail, acompanhando do Go-Live até a operação diária."
+                }
+                },
+                {
+                "@type": "Question",
+                "name": "O layout da loja virtual é customizável?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim, oferecemos total liberdade criativa com foco em experiências mobile-first e identidade visual personalizada."
+                }
+                },
+                {
+                "@type": "Question",
+                "name": "Quais são as taxas sobre vendas da plataforma?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "As taxas variam conforme o plano (Bronze, Gold, Platinum), geralmente entre 1,0% e 3,0% para B2C e 1,0% e 2,0% para B2B."
+                }
+                }
+            ]
+            }
+        ]
+    }
+    </script>
 
 </body>
 </html>
