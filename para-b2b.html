@@ -1,0 +1,51 @@
+<!-- NOX B2B PAGE -->
+        <template x-if="currentPage === 'nox-b2b'">
+            <div class="page-enter">
+                <section class="bg-nox-dark text-white py-24">
+                    <div class="max-w-7xl mx-auto px-4">
+                        <div class="flex flex-col md:flex-row gap-12 items-center">
+                            <div class="md:w-1/2">
+                                <h1 class="text-5xl font-black mb-6">NOX B2B</h1>
+                                <p class="text-xl opacity-80 mb-8 font-light italic">"A plataforma que se adapta a sua operação. Você não precisa mudar sua estrutura para ter uma plataforma B2B."</p>
+                                <div class="bg-nox-purple p-6 rounded-2xl">
+                                    <h4 class="font-bold mb-4"><i class="fa-solid fa-list-check mr-2"></i>Recursos Exclusivos:</h4>
+                                    <ul class="space-y-3 text-sm">
+                                        <li>• Tabelas de Preço por Cliente</li>
+                                        <li>• Políticas de Desconto Progressivo</li>
+                                        <li>• Grade de Produtos e Conjuntos</li>
+                                        <li>• Pagamentos Condicionais</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2">
+                                <div class="bg-gray-800 p-8 rounded-[40px] border border-gray-700 shadow-2xl">
+                                    <h3 class="text-2xl font-bold mb-6">Foco na Indústria</h3>
+                                    <p class="text-gray-400 mb-6 leading-relaxed">Desenvolvida para atender as particularidades do mercado B2B brasileiro, integrando força de vendas externa, representantes e clientes diretos em um portal unificado.</p>
+                                    <a :href="whatsappUrl" target="_blank" class="w-full bg-white text-nox-dark py-4 rounded-xl font-black text-center block hover:bg-nox-purple hover:text-white transition">Solicitar Orçamento B2B</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-20 max-w-7xl mx-auto px-4">
+                    <h2 class="text-3xl font-black mb-12">Diferenciais B2B</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="p-8 bg-gray-50 rounded-3xl">
+                            <i class="fa-solid fa-rotate text-3xl text-nox-purple mb-4"></i>
+                            <h4 class="font-bold mb-2">Pedidos Recorrentes</h4>
+                            <p class="text-sm text-gray-500">Histórico completo para recompras rápidas em um clique.</p>
+                        </div>
+                        <div class="p-8 bg-gray-50 rounded-3xl">
+                            <i class="fa-solid fa-user-gear text-3xl text-nox-purple mb-4"></i>
+                            <h4 class="font-bold mb-2">Painel do Representante</h4>
+                            <p class="text-sm text-gray-500">Gestão de carteira, comissões e pedidos em tempo real.</p>
+                        </div>
+                        <div class="p-8 bg-gray-50 rounded-3xl">
+                            <i class="fa-solid fa-file-invoice-dollar text-3xl text-nox-purple mb-4"></i>
+                            <h4 class="font-bold mb-2">Regras Fiscais ERP</h4>
+                            <p class="text-sm text-gray-500">Cálculo de impostos e prazos direto do seu sistema central.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </template>

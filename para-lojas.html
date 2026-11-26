@@ -1,0 +1,704 @@
+<!-- NOX STORE B2C PAGE -->
+        <template x-if="currentPage === 'nox-store-b2c'">
+            <div class="page-enter" x-data="{ 
+                intFilter: 'todos',
+                simOrderValue: 350,
+                simInstallments: 1
+            }">
+
+                <!-- 1. HERO SECTION (Padrão visual da Home com foco no NOX Store B2C) -->
+                <section class="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden bg-slate-900 text-white">
+                    <div class="absolute inset-0 opacity-20">
+                        <div class="absolute -top-24 -right-24 w-96 h-96 bg-nox-purple rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+                        <div class="absolute top-48 -left-24 w-96 h-96 bg-nox-pink rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                        <div class="grid lg:grid-cols-12 gap-12 items-center">
+                            <!-- Coluna de Texto -->
+                            <div class="lg:col-span-7 text-center lg:text-left">
+                                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-purple-300 text-xs font-bold uppercase tracking-wider mb-6">
+                                    <i class="fa-solid fa-store text-nox-pink"></i> Plataforma de E-commerce B2C
+                                </span>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                                    Sua loja virtual pronta para <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">vender mais</span> e evoluir com o seu negócio.
+                                </h1>
+                                <p class="text-lg md:text-xl text-slate-300 font-light mb-8 max-w-2xl mx-auto lg:mx-0">
+                                    O NOX Store reúne recursos comerciais, gestão de produtos e integrações para sua empresa vender diretamente ao consumidor, com mais controle sobre a operação e a experiência de compra.
+                                </p>
+
+                                <!-- Destaques Curtos -->
+                                <div class="grid sm:grid-cols-2 gap-3 text-left text-sm text-slate-200 mb-10 max-w-2xl mx-auto lg:mx-0">
+                                    <div class="flex items-center gap-2.5 bg-white/5 px-3.5 py-2.5 rounded-xl border border-white/10">
+                                        <i class="fa-solid fa-circle-check text-nox-pink"></i>
+                                        <span>Recursos avançados para o varejo B2C</span>
+                                    </div>
+                                    <div class="flex items-center gap-2.5 bg-white/5 px-3.5 py-2.5 rounded-xl border border-white/10">
+                                        <i class="fa-solid fa-circle-check text-nox-pink"></i>
+                                        <span>ERPs, marketplaces, pagamentos e entregas</span>
+                                    </div>
+                                    <div class="flex items-center gap-2.5 bg-white/5 px-3.5 py-2.5 rounded-xl border border-white/10">
+                                        <i class="fa-solid fa-circle-check text-nox-pink"></i>
+                                        <span>Campanhas, descontos e cashback</span>
+                                    </div>
+                                    <div class="flex items-center gap-2.5 bg-white/5 px-3.5 py-2.5 rounded-xl border border-white/10">
+                                        <i class="fa-solid fa-circle-check text-nox-pink"></i>
+                                        <span>Checkout próprio integrado à plataforma</span>
+                                    </div>
+                                </div>
+
+                                <!-- CTAs -->
+                                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                                    <a :href="whatsappUrl + '&text=' + encodeURIComponent('Olá! Gostaria de solicitar uma demonstração do NOX Store B2C.')" target="_blank" class="gradient-nox text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-purple-500/30 transition transform hover:-translate-y-0.5 text-center">
+                                        Solicitar uma demonstração
+                                    </a>
+                                    <a href="#funcionalidades-store" class="bg-transparent border-2 border-slate-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-800 hover:border-slate-500 transition text-center">
+                                        Conhecer as funcionalidades
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Coluna Visual: Preview do Ecossistema NOX Store (Substituir por captura real da loja/checkout quando disponível) -->
+                            <div class="lg:col-span-5">
+                                <div class="bg-slate-800/80 backdrop-blur-md border border-slate-700 rounded-2xl p-6 shadow-2xl">
+                                    <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-700">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                        </div>
+                                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Checkout Próprio NOX Store</span>
+                                    </div>
+
+                                    <!-- Resumo visual de diferenciais conectados -->
+                                    <div class="space-y-4">
+                                        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-700/80 flex items-center justify-between">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 rounded-lg bg-red-600/20 text-red-400 flex items-center justify-center font-black text-sm border border-red-500/30">
+                                                    J&T
+                                                </div>
+                                                <div>
+                                                    <p class="text-xs text-slate-400">Cotação Integrada</p>
+                                                    <p class="text-sm font-bold text-white">J&T Express</p>
+                                                </div>
+                                            </div>
+                                            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-green-500/15 text-green-400 border border-green-500/30">
+                                                Frete Competitivo
+                                            </span>
+                                        </div>
+
+                                        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-700/80 flex items-center justify-between">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 rounded-lg bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-black text-sm border border-emerald-500/30">
+                                                    <i class="fa-solid fa-credit-card"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-xs text-slate-400">Pagamento Integrado</p>
+                                                    <p class="text-sm font-bold text-white">Netcred</p>
+                                                </div>
+                                            </div>
+                                            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                                                A partir de 2,29%*
+                                            </span>
+                                        </div>
+
+                                        <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-700/80 flex items-center justify-between">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 rounded-lg bg-nox-purple/30 text-purple-300 flex items-center justify-center font-black text-sm border border-purple-500/30">
+                                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-xs text-slate-400">Gestão Unificada</p>
+                                                    <p class="text-sm font-bold text-white">ERP + Marketplaces + Loja</p>
+                                                </div>
+                                            </div>
+                                            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-500/15 text-blue-300 border border-blue-500/30">
+                                                Sincronizado
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-[11px] text-slate-400 mt-4 text-center">
+                                        *Consulte condições comerciais vigentes e disponibilidade por operação.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. DIFERENCIAIS EM DESTAQUE (J&T Express & Netcred logo após o Hero) -->
+                <section class="py-20 bg-slate-50 border-b border-slate-200">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-3xl mx-auto mb-14">
+                            <span class="text-nox-purple font-bold tracking-wider uppercase text-sm">Vantagens Competitivas</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+                                Logística e pagamentos em destaque para a sua operação
+                            </h2>
+                            <p class="text-lg text-slate-600">
+                                Conecte sua loja a parceiros estratégicos para oferecer opções competitivas de envio e condições diferenciadas no checkout.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                            
+                            <!-- BLOCO 1: J&T EXPRESS -->
+                            <div class="bg-white rounded-2xl border-2 border-red-100 shadow-xl overflow-hidden flex flex-col justify-between">
+                                <div>
+                                    <!-- Header do Card J&T com Logo Estilizado -->
+                                    <div class="bg-gradient-to-r from-red-600 to-red-700 px-8 py-6 text-white flex flex-wrap items-center justify-between gap-4">
+                                        <div class="flex items-center gap-3">
+                                            <!-- Badge/Logo Oficial J&T (Substituir por <img> oficial quando fornecido) -->
+                                            <div class="bg-white text-red-600 px-4 py-2 rounded-xl font-black text-2xl tracking-tighter shadow-sm">
+                                                J&amp;T <span class="text-xs font-extrabold uppercase tracking-widest text-slate-700 ml-0.5">Express</span>
+                                            </div>
+                                        </div>
+                                        <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                                            Parceiro Logístico
+                                        </span>
+                                    </div>
+
+                                    <div class="p-8">
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-3">
+                                            Mais competitividade na entrega com a J&amp;T
+                                        </h3>
+                                        <p class="text-slate-600 mb-6 leading-relaxed">
+                                            Com a integração à J&amp;T, sua loja pode oferecer uma alternativa competitiva de envio, conectando a operação do NOX Store a uma opção logística disponível na plataforma.
+                                        </p>
+
+                                        <!-- Quadro Visual da Simulação Específica SC -> SP -->
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-6">
+                                            <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-200">
+                                                <span class="text-xs font-extrabold uppercase tracking-wider text-slate-800 flex items-center gap-2">
+                                                    <i class="fa-solid fa-truck-fast text-red-600"></i> Simulação Específica de Frete
+                                                </span>
+                                                <span class="text-[11px] font-bold bg-green-100 text-green-800 px-2.5 py-0.5 rounded-full">
+                                                    Menor valor na rota simulada
+                                                </span>
+                                            </div>
+
+                                            <p class="text-sm text-slate-700 mb-4">
+                                                Em uma simulação realizada de <strong>Santa Catarina para São Paulo</strong>, a J&amp;T apresentou o menor valor entre as alternativas avaliadas.
+                                            </p>
+
+                                            <!-- Tabela de Parâmetros da Simulação (Preencher campos pendentes após validação) -->
+                                            <div class="grid grid-cols-2 gap-2.5 text-xs mb-3">
+                                                <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+                                                    <span class="block text-slate-400 font-semibold">Origem</span>
+                                                    <span class="font-bold text-slate-800">Santa Catarina (SC)*</span>
+                                                </div>
+                                                <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+                                                    <span class="block text-slate-400 font-semibold">Destino</span>
+                                                    <span class="font-bold text-slate-800">São Paulo (SP)*</span>
+                                                </div>
+                                                <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+                                                    <span class="block text-slate-400 font-semibold">Encomenda / Modalidade</span>
+                                                    <span class="font-bold text-slate-800">Cotação conforme pacote*</span>
+                                                </div>
+                                                <div class="bg-red-50 p-2.5 rounded-lg border border-red-200">
+                                                    <span class="block text-red-600 font-semibold">Resultado Comparativo</span>
+                                                    <span class="font-extrabold text-red-700">Menor tarifa entre avaliadas</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-[11px] text-slate-500 leading-snug">
+                                                *Resultado referente a uma simulação específica (SC → SP), não representando garantia de menor preço para todas as rotas, pesos, dimensões ou encomendas.
+                                            </p>
+                                        </div>
+
+                                        <!-- Lista de Destaques J&T -->
+                                        <ul class="space-y-2.5 text-sm text-slate-700">
+                                            <li class="flex items-center gap-2.5">
+                                                <i class="fa-solid fa-check text-red-600 font-bold"></i>
+                                                <span>Integração logística direta com a loja virtual</span>
+                                            </li>
+                                            <li class="flex items-center gap-2.5">
+                                                <i class="fa-solid fa-check text-red-600 font-bold"></i>
+                                                <span>Cotação conforme dados do pedido e da encomenda</span>
+                                            </li>
+                                            <li class="flex items-center gap-2.5">
+                                                <i class="fa-solid fa-check text-red-600 font-bold"></i>
+                                                <span>Possibilidade de comparar opções de entrega no carrinho</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="px-8 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                                    <span class="text-xs font-bold text-slate-700">Uma opção competitiva para vender com mais confiança.</span>
+                                    <a :href="whatsappUrl + '&text=' + encodeURIComponent('Olá! Quero saber mais sobre a integração com a J&T no NOX Store.')" target="_blank" class="text-sm font-bold text-red-600 hover:text-red-700 flex items-center gap-1">
+                                        Consultar <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- BLOCO 2: NETCRED PAGAMENTOS -->
+                            <div class="bg-white rounded-2xl border-2 border-purple-100 shadow-xl overflow-hidden flex flex-col justify-between">
+                                <div>
+                                    <!-- Header do Card Netcred com Logo Estilizado -->
+                                    <div class="gradient-nox px-8 py-6 text-white flex flex-wrap items-center justify-between gap-4">
+                                        <div class="flex items-center gap-3">
+                                            <!-- Badge/Logo Oficial Netcred (Substituir por <img> oficial quando fornecido) -->
+                                            <div class="bg-white text-nox-purple px-4 py-2 rounded-xl font-black text-2xl tracking-tight shadow-sm flex items-center gap-1.5">
+                                                <i class="fa-solid fa-shield-halved text-nox-pink text-lg"></i>
+                                                <span>NETCRED</span>
+                                            </div>
+                                        </div>
+                                        <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                                            Parceiro de Pagamentos
+                                        </span>
+                                    </div>
+
+                                    <div class="p-8">
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-3">
+                                            Condições de pagamento competitivas com a Netcred
+                                        </h3>
+                                        <p class="text-slate-600 mb-6 leading-relaxed">
+                                            O NOX Store conta com integração à Netcred para conectar sua loja a soluções de pagamento online com condições comerciais competitivas integradas ao checkout próprio NOX.
+                                        </p>
+
+                                        <!-- Destaque Visual das Taxas Informadas -->
+                                        <div class="bg-purple-50/70 border border-purple-200 rounded-xl p-5 mb-6">
+                                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-4 border-b border-purple-200/70">
+                                                <div>
+                                                    <span class="text-xs font-extrabold uppercase tracking-wider text-nox-purple block mb-1">
+                                                        Condições Informadas*
+                                                    </span>
+                                                    <div class="text-3xl md:text-4xl font-black text-slate-900">
+                                                        2,29% <span class="text-lg font-bold text-slate-500">a</span> 3,49%*
+                                                    </div>
+                                                </div>
+                                                <div class="bg-white px-3.5 py-2.5 rounded-lg border border-purple-200 text-xs text-slate-700">
+                                                    <span class="font-bold text-nox-pink block">Checkout Próprio NOX</span>
+                                                    Jornada integrada sem redirecionamentos
+                                                </div>
+                                            </div>
+
+                                            <!-- Nota obrigatória de conformidade comercial -->
+                                            <p class="text-[11px] text-slate-600 leading-snug">
+                                                *Taxas sujeitas à modalidade, bandeira, prazo de recebimento, análise e condições comerciais vigentes. Consulte as condições aplicáveis à sua operação.
+                                            </p>
+                                        </div>
+
+                                        <!-- Lista de Destaques Netcred -->
+                                        <ul class="space-y-2.5 text-sm text-slate-700">
+                                            <li class="flex items-center gap-2.5">
+                                                <i class="fa-solid fa-check text-nox-purple font-bold"></i>
+                                                <span>Integração de pagamento diretamente ao fluxo de compra</span>
+                                            </li>
+                                            <li class="flex items-center gap-2.5">
+                                                <i class="fa-solid fa-check text-nox-purple font-bold"></i>
+                                                <span>Condições comerciais competitivas conforme modalidade</span>
+                                            </li>
+                                            <li class="flex items-center gap-2.5">
+                                                <i class="fa-solid fa-check text-nox-purple font-bold"></i>
+                                                <span>Alternativa estruturada para os recebimentos online da loja</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="px-8 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                                    <span class="text-xs font-bold text-slate-700">Recebimentos conectados à sua operação B2C.</span>
+                                    <a :href="whatsappUrl + '&text=' + encodeURIComponent('Olá! Gostaria de consultar as condições da Netcred no NOX Store.')" target="_blank" class="text-sm font-bold text-nox-purple hover:text-nox-pink flex items-center gap-1">
+                                        Consultar <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. FUNCIONALIDADES DA PLATAFORMA (Agrupadas em cards escaneáveis) -->
+                <section id="funcionalidades-store" class="py-20 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-3xl mx-auto mb-16">
+                            <span class="text-nox-purple font-bold tracking-wider uppercase text-sm">Funcionalidades NOX Store</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+                                Recursos para administrar, promover e expandir sua loja
+                            </h2>
+                            <p class="text-lg text-slate-600">
+                                O NOX Store oferece ferramentas para organizar o catálogo, criar estratégias comerciais, gerenciar a operação e proporcionar uma experiência de compra completa ao consumidor.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            
+                            <!-- Grupo 1: Promoções e estratégias comerciais -->
+                            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-nox-pink hover:shadow-lg transition">
+                                <div class="w-12 h-12 rounded-xl bg-pink-100 text-nox-pink flex items-center justify-center text-xl mb-5">
+                                    <i class="fa-solid fa-tags"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Promoções e estratégias comerciais</h3>
+                                <p class="text-xs font-semibold text-nox-pink mb-4">Estímulo ao ticket médio e fidelização</p>
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Cupons de desconto por códigos promocionais</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Descontos conforme a forma de pagamento</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Preço De/Por (original e promocional)</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Regras de desconto no frete</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Desconto progressivo por quantidade</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Cashback para incentivar recompra</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Grupo 2: Gestão avançada de produtos e catálogo -->
+                            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-nox-purple hover:shadow-lg transition">
+                                <div class="w-12 h-12 rounded-xl bg-purple-100 text-nox-purple flex items-center justify-center text-xl mb-5">
+                                    <i class="fa-solid fa-boxes-stacked"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Gestão avançada de catálogo</h3>
+                                <p class="text-xs font-semibold text-nox-purple mb-4">Flexibilidade para variações e regras comerciais</p>
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Produtos exclusivos por data (ações VIP) e Pré-venda</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Estoque de segurança e restrição por transportadora</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Grade dinâmica, 4 campos de descrição e tags SEO</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Galeria de imagens ou links de imagens externas</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Família de produtos, Relacionados e Compre Junto</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span><strong>Monte seu Kit:</strong> ideal para informática e combinações</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Grupo 3: Checkout e experiência de compra -->
+                            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-nox-dark hover:shadow-lg transition">
+                                <div class="w-12 h-12 rounded-xl bg-slate-200 text-nox-dark flex items-center justify-center text-xl mb-5">
+                                    <i class="fa-solid fa-bag-shopping"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Checkout próprio integrado</h3>
+                                <p class="text-xs font-semibold text-slate-700 mb-4">Jornada simplificada para favorecer a conversão</p>
+                                <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                                    O NOX Store utiliza um checkout exclusivo da plataforma, desenvolvido para integrar as etapas da compra, reduzir atritos e simplificar a jornada do consumidor.
+                                </p>
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Checkout exclusivo e nativo do NOX Store</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Integração direta com meios de pagamento e frete</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Jornada de compra conectada à operação da loja</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Grupo 4: Inteligência artificial e conteúdo -->
+                            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-blue-500 hover:shadow-lg transition">
+                                <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-5">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Inteligência artificial e conteúdo</h3>
+                                <p class="text-xs font-semibold text-blue-600 mb-4">Apoio à qualidade das informações da loja</p>
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span><strong>Enriquecimento de produtos com IA:</strong> apoio na melhoria e complementação das descrições e informações do catálogo.</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span><strong>Blog nativo:</strong> produção de conteúdo institucional e informativo dentro da própria estrutura da loja.</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Grupo 5: Serviços e operação -->
+                            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-emerald-500 hover:shadow-lg transition">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-5">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Serviços e operação</h3>
+                                <p class="text-xs font-semibold text-emerald-600 mb-4">Recursos operacionais e apresentação visual</p>
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span><strong>Gestão de serviços:</strong> administração de serviços vinculados à operação comercial.</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span><strong>Cadastro de lojas:</strong> organização de unidades e pontos de atendimento/retirada.</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span><strong>Hotspot de produtos:</strong> marcação interativa de itens diretamente em imagens ambientadas.</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Grupo 6: Dados, marketing e mensuração -->
+                            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-amber-500 hover:shadow-lg transition">
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-5">
+                                    <i class="fa-solid fa-chart-pie"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Dados, marketing e mensuração</h3>
+                                <p class="text-xs font-semibold text-amber-600 mb-4">Acompanhamento de eventos e campanhas</p>
+                                <p class="text-sm text-slate-600 mb-4">
+                                    Compatibilidade com as principais ferramentas de tags e análise do mercado:
+                                </p>
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Google Analytics 4 (GA4)</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Google Tag Manager (GTM)</span></li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i><span>Meta (gestão de tags e mensuração)</span></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. INTEGRAÇÕES E PARCEIROS (Com filtros interativos e badges/logos organizados) -->
+                <section class="py-20 bg-slate-50 border-t border-slate-200">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-3xl mx-auto mb-10">
+                            <span class="text-nox-purple font-bold tracking-wider uppercase text-sm">Ecossistema Conectado</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+                                Sua operação conectada às ferramentas que já fazem parte do seu negócio
+                            </h2>
+                            <p class="text-lg text-slate-600">
+                                O NOX Store pode se conectar a soluções de gestão, marketplaces, marketing, pagamento e logística, ajudando a integrar diferentes etapas da operação.
+                            </p>
+                        </div>
+
+                        <!-- Abas de Filtro por Categoria -->
+                        <div class="flex flex-wrap justify-center gap-2 mb-12">
+                            <button @click="intFilter = 'todos'" :class="intFilter === 'todos' ? 'bg-nox-dark text-white shadow-md' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'" class="px-5 py-2.5 rounded-full text-sm font-bold transition">
+                                Todas as Categorias
+                            </button>
+                            <button @click="intFilter = 'logistica'" :class="intFilter === 'logistica' ? 'bg-red-600 text-white shadow-md' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'" class="px-5 py-2.5 rounded-full text-sm font-bold transition">
+                                Entrega e Logística
+                            </button>
+                            <button @click="intFilter = 'pagamentos'" :class="intFilter === 'pagamentos' ? 'bg-nox-purple text-white shadow-md' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'" class="px-5 py-2.5 rounded-full text-sm font-bold transition">
+                                Pagamentos
+                            </button>
+                            <button @click="intFilter = 'erp'" :class="intFilter === 'erp' ? 'bg-nox-dark text-white shadow-md' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'" class="px-5 py-2.5 rounded-full text-sm font-bold transition">
+                                Sistemas ERP
+                            </button>
+                            <button @click="intFilter = 'marketplaces'" :class="intFilter === 'marketplaces' ? 'bg-nox-pink text-white shadow-md' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'" class="px-5 py-2.5 rounded-full text-sm font-bold transition">
+                                Marketplaces e Outros
+                            </button>
+                        </div>
+
+                        <div class="space-y-8">
+                            <!-- Categoria: Entrega e Logística -->
+                            <div x-show="intFilter === 'todos' || intFilter === 'logistica'" class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-6 pb-4 border-b border-slate-100">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                            <i class="fa-solid fa-truck text-red-600"></i> Entrega e Logística
+                                        </h3>
+                                        <p class="text-sm text-slate-500 mt-1">Ofereça alternativas de entrega e configure a operação conforme produtos, regiões atendidas e estratégia comercial.</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                                    <!-- Destaque J&T -->
+                                    <div class="col-span-2 sm:col-span-1 bg-red-50 border-2 border-red-500 rounded-xl p-3.5 flex flex-col items-center justify-center text-center shadow-sm">
+                                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-red-600 mb-1">Destaque</span>
+                                        <span class="font-black text-red-700 text-base">J&amp;T Express</span>
+                                    </div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Melhor Envio</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Frenet</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Correios</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Jadlog</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Braspress</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Total Express</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Intelipost</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Stone Entregas</div>
+                                    <div class="bg-slate-100 border border-dashed border-slate-300 rounded-xl p-3.5 flex flex-col items-center justify-center text-center">
+                                        <span class="font-bold text-slate-700 text-sm">Retirada</span>
+                                        <span class="text-[10px] text-slate-500">Modalidade</span>
+                                    </div>
+                                    <div class="bg-slate-100 border border-dashed border-slate-300 rounded-xl p-3.5 flex flex-col items-center justify-center text-center">
+                                        <span class="font-bold text-slate-700 text-sm">Combinado</span>
+                                        <span class="text-[10px] text-slate-500">Modalidade</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Categoria: Pagamentos -->
+                            <div x-show="intFilter === 'todos' || intFilter === 'pagamentos'" class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-6 pb-4 border-b border-slate-100">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                            <i class="fa-solid fa-credit-card text-nox-purple"></i> Pagamentos
+                                        </h3>
+                                        <p class="text-sm text-slate-500 mt-1">Disponibilize alternativas de pagamento para estruturar a experiência de compra conforme as necessidades da loja.</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                                    <!-- Destaque Netcred -->
+                                    <div class="col-span-2 sm:col-span-1 bg-purple-50 border-2 border-nox-purple rounded-xl p-3.5 flex flex-col items-center justify-center text-center shadow-sm">
+                                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-nox-pink mb-1">Destaque</span>
+                                        <span class="font-black text-nox-purple text-base">Netcred</span>
+                                    </div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Pagar.me</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Cielo</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">E-rede (com 3DS)</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Mercado Pago</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">PagBank</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Vindi</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Getnet</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Moovi (OpenPix)</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">InfinitePay</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Boletos Itaú</div>
+                                </div>
+                            </div>
+
+                            <!-- Categoria: Sistemas ERP -->
+                            <div x-show="intFilter === 'todos' || intFilter === 'erp'" class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                                <div class="mb-6 pb-4 border-b border-slate-100">
+                                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                        <i class="fa-solid fa-database text-nox-dark"></i> Sistemas ERP e Gestão
+                                    </h3>
+                                    <p class="text-sm text-slate-500 mt-1">Integrações com sistemas de gestão para apoiar processos de cadastro, sincronização e administração da operação. Os recursos variam conforme o ERP e o escopo da integração.</p>
+                                </div>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3">
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Bling</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Tiny</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Devmaster</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Deltacon</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Marconsoft</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Neo Sistemas</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Sispan</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Smart Sistemas</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">TWCom</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Domínio Informática</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Zoom Soft</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Excia</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Jueri</div>
+                                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Magento 1*</div>
+                                </div>
+                                <p class="text-[11px] text-slate-400 mt-3">*Disponibilidade e escopo técnico de sincronização variam conforme a solução integrada.</p>
+                            </div>
+
+                            <!-- Categoria: Marketplaces e Outras Integrações -->
+                            <div x-show="intFilter === 'todos' || intFilter === 'marketplaces'" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <!-- Marketplaces -->
+                                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-2">
+                                        <i class="fa-solid fa-shop text-nox-pink"></i> Marketplaces e Canais de Venda
+                                    </h3>
+                                    <p class="text-sm text-slate-500 mb-6">Amplie os canais de venda e conecte sua operação a marketplaces relevantes.</p>
+                                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Mercado Livre</div>
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Shopee</div>
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Amazon</div>
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Vtrina Marketplace</div>
+                                    </div>
+                                </div>
+
+                                <!-- Outras Integrações -->
+                                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-2">
+                                        <i class="fa-solid fa-puzzle-piece text-blue-500"></i> Marketing, Vídeos e Antifraude
+                                    </h3>
+                                    <p class="text-sm text-slate-500 mb-6">Conecte ferramentas de relacionamento, conteúdo e análise de risco conforme disponibilidade.</p>
+                                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">RD Station</div>
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">E-drone</div>
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Reportana</div>
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">ClearSale</div>
+                                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-center text-center font-bold text-slate-700 text-sm">Planweb Vídeos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. BENEFÍCIOS PARA O LOJISTA (4 Blocos no estilo Dark Slate do site) -->
+                <section class="py-20 bg-slate-900 text-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-3xl mx-auto mb-16">
+                            <span class="text-purple-400 font-bold tracking-wider uppercase text-sm">Benefícios para o Lojista</span>
+                            <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                                Mais controle sobre a operação. Mais possibilidades para vender.
+                            </h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <div class="bg-slate-800/70 p-7 rounded-2xl border border-slate-700">
+                                <div class="w-14 h-14 rounded-xl bg-nox-pink/20 text-nox-pink flex items-center justify-center text-2xl mb-5 border border-nox-pink/30">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Mais estratégias comerciais</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">
+                                    Cupons, descontos, cashback, kits e campanhas para estimular vendas e recompra.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-800/70 p-7 rounded-2xl border border-slate-700">
+                                <div class="w-14 h-14 rounded-xl bg-nox-purple/30 text-purple-300 flex items-center justify-center text-2xl mb-5 border border-purple-500/30">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Catálogo mais flexível</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">
+                                    Variações, pré-vendas, produtos exclusivos, estoque de segurança e combinações.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-800/70 p-7 rounded-2xl border border-slate-700">
+                                <div class="w-14 h-14 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl mb-5 border border-blue-500/30">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Operação integrada</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">
+                                    Conexão com ERPs, marketplaces, pagamentos e logística em um só ecossistema.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-800/70 p-7 rounded-2xl border border-slate-700">
+                                <div class="w-14 h-14 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-5 border border-emerald-500/30">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2">Experiência de compra própria</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">
+                                    Checkout integrado e recursos para acompanhar a jornada do consumidor.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. PARA QUEM É O NOX STORE? -->
+                <section class="py-20 bg-white border-b border-slate-200">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid lg:grid-cols-12 gap-12 items-center">
+                            <div class="lg:col-span-5">
+                                <span class="text-nox-purple font-bold tracking-wider uppercase text-sm">Perfil de Operação</span>
+                                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+                                    Uma plataforma para operações de varejo que precisam de flexibilidade
+                                </h2>
+                                <p class="text-slate-600 text-lg leading-relaxed">
+                                    Focado no comércio B2C, o NOX Store atende desde operações em estruturação digital até varejistas com catálogos extensos e regras comerciais específicas.
+                                </p>
+                            </div>
+
+                            <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+                                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex items-start gap-3.5">
+                                    <i class="fa-solid fa-circle-check text-nox-purple text-lg mt-0.5"></i>
+                                    <span class="text-sm font-semibold text-slate-800">Lojas virtuais que estão profissionalizando suas vendas online.</span>
+                                </div>
+                                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex items-start gap-3.5">
+                                    <i class="fa-solid fa-circle-check text-nox-purple text-lg mt-0.5"></i>
+                                    <span class="text-sm font-semibold text-slate-800">Varejistas com catálogo amplo ou produtos com muitas variações.</span>
+                                </div>
+                                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex items-start gap-3.5">
+                                    <i class="fa-solid fa-circle-check text-nox-purple text-lg mt-0.5"></i>
+                                    <span class="text-sm font-semibold text-slate-800">Lojas de informática e segmentos que trabalham com kits e combinações.</span>
+                                </div>
+                                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex items-start gap-3.5">
+                                    <i class="fa-solid fa-circle-check text-nox-purple text-lg mt-0.5"></i>
+                                    <span class="text-sm font-semibold text-slate-800">Operações que utilizam marketplaces como canais complementares.</span>
+                                </div>
+                                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex items-start gap-3.5">
+                                    <i class="fa-solid fa-circle-check text-nox-purple text-lg mt-0.5"></i>
+                                    <span class="text-sm font-semibold text-slate-800">Empresas que precisam integrar loja virtual, ERP, pagamento e logística.</span>
+                                </div>
+                                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex items-start gap-3.5">
+                                    <i class="fa-solid fa-circle-check text-nox-purple text-lg mt-0.5"></i>
+                                    <span class="text-sm font-semibold text-slate-800">Lojas que desejam desenvolver campanhas, cashback e ações VIP.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. CHAMADA FINAL (Padrão CTA do site + Canal Oficial WhatsApp) -->
+                <section class="py-24 bg-slate-50 text-center">
+                    <div class="max-w-4xl mx-auto px-4">
+                        <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                            Conheça o NOX Store e descubra o que sua loja pode fazer com uma operação integrada.
+                        </h2>
+                        <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
+                            Converse com nossa equipe, apresente as necessidades da sua operação e conheça os recursos do NOX Store. Vamos ajudar a avaliar as integrações e possibilidades adequadas ao seu negócio.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <a :href="whatsappUrl + '&text=' + encodeURIComponent('Olá! Gostaria de solicitar uma demonstração do NOX Store B2C.')" target="_blank" class="gradient-nox text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition shadow-xl inline-flex items-center justify-center gap-2">
+                                Solicitar uma demonstração
+                            </a>
+                            <a :href="whatsappUrl + '&text=' + encodeURIComponent('Olá! Gostaria de falar com um especialista sobre o NOX Store.')" target="_blank" class="bg-white border-2 border-nox-dark text-nox-dark px-10 py-4 rounded-full font-bold text-lg hover:bg-nox-dark hover:text-white transition inline-flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-green-600 text-xl"></i> Falar com um especialista
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </template>
